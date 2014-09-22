@@ -1,0 +1,8 @@
+{
+  "name": "angular-aria",
+  "version": "",
+  "main": "./angular-aria.js",
+  "dependencies": {
+    "angular": ""
+  }
+}
