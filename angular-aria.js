@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.3.0-build.3393+sha.40d4bb5
+ * @license AngularJS v1.3.0-build.3394+sha.a3f44ed
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -10,18 +10,18 @@
  * @name ngAria
  * @description
  *
- * The `ngAria` module provides support for adding aria tags that convey state or semantic information
- * about the application in order to allow assistive technologies to convey appropriate information to
- * persons with disabilities.
+ * The `ngAria` module provides support for adding <abbr title="Accessible Rich Internet Applications">ARIA</abbr>
+ * attributes that convey state or semantic information about the application in order to allow assistive technologies
+ * to convey appropriate information to persons with disabilities.
  *
  * <div doc-module-components="ngAria"></div>
  *
  * # Usage
- * To enable the addition of the aria tags, just require the module into your application and the tags will
+ * To enable the addition of the ARIA tags, just require the module into your application and the tags will
  * hook into your ng-show/ng-hide, input, textarea, button, select and ng-required directives and adds the
- * appropriate aria-tags.
+ * appropriate ARIA attributes.
  *
- * Currently, the following aria tags are implemented:
+ * Currently, the following ARIA attributes are implemented:
  *
  * + aria-hidden
  * + aria-checked
@@ -34,7 +34,7 @@
  * + aria-valuemax
  * + tabindex
  *
- * You can disable individual aria tags by using the {@link ngAria.$ariaProvider#config config} method.
+ * You can disable individual ARIA attributes by using the {@link ngAria.$ariaProvider#config config} method.
  */
 
  /* global -ngAriaModule */
@@ -47,7 +47,7 @@ var ngAriaModule = angular.module('ngAria', ['ng']).
  *
  * @description
  *
- * Used for configuring aria attributes.
+ * Used for configuring ARIA attributes.
  *
  * ## Dependencies
  * Requires the {@link ngAria} module to be installed.
@@ -68,7 +68,7 @@ function $AriaProvider() {
    * @ngdoc method
    * @name $ariaProvider#config
    *
-   * @param {object} config object to enable/disable specific aria tags
+   * @param {object} config object to enable/disable specific ARIA attributes
    *
    *  - **ariaHidden** – `{boolean}` – Enables/disables aria-hidden tags
    *  - **ariaChecked** – `{boolean}` – Enables/disables aria-checked tags
@@ -80,7 +80,7 @@ function $AriaProvider() {
    *  - **tabindex** – `{boolean}` – Enables/disables tabindex tags
    *
    * @description
-   * Enables/disables various aria tags
+   * Enables/disables various ARIA attributes
    */
   this.config = function(newConfig) {
     config = angular.extend(config, newConfig);
@@ -113,7 +113,7 @@ function $AriaProvider() {
    *
    * @description
    *
-   * Contains helper methods for applying aria tags to HTML
+   * Contains helper methods for applying ARIA attributes to HTML
    *
    * ## Dependencies
    * Requires the {@link ngAria} module to be installed.
