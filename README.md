@@ -1,4 +1,4 @@
-# bower-angular-aria
+# packaged angular-aria
 
 This repo is for distribution on `npm` and `bower`. The source for this module is in the
 [main AngularJS repo](https://github.com/angular/angular.js/tree/master/src/ngAria).
