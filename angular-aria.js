@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.3.1-build.3452+sha.7fa6634
+ * @license AngularJS v1.3.1-build.3453+sha.ed3f799
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -54,7 +54,7 @@ var ngAriaModule = angular.module('ngAria', ['ng']).
  */
 function $AriaProvider() {
   var config = {
-    ariaHidden : true,
+    ariaHidden: true,
     ariaChecked: true,
     ariaDisabled: true,
     ariaRequired: true,
