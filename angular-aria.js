@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.3.1-build.3464+sha.d97b427
+ * @license AngularJS v1.3.1-build.3499+sha.b4db713
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -120,7 +120,7 @@ function $AriaProvider() {
    */
   this.$get = function() {
     return {
-      config: function (key) {
+      config: function(key) {
         return config[camelCase(key)];
       },
       $$watchExpr: watchExpr
@@ -144,11 +144,11 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 }])
 .directive('ngModel', ['$aria', function($aria) {
 
-  function shouldAttachAttr (attr, elem) {
+  function shouldAttachAttr(attr, elem) {
     return $aria.config(attr) && !elem.attr(attr);
   }
 
-  function getShape (attr, elem) {
+  function getShape(attr, elem) {
     var type = attr.type,
         role = attr.role;
 
