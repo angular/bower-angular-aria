@@ -2,6 +2,7 @@
   "name": "angular-aria",
   "version": "1.4.0-build.3797+sha.0db5b21",
   "description": "AngularJS module for making accessibility easy",
+  "main": "angular-aria.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
