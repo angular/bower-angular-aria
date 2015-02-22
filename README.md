@@ -13,21 +13,11 @@ You can install this package either with `npm` or with `bower`.
 ```shell
 npm install angular-aria
 ```
-
-Add a `<script>` to your `index.html`:
-
-```html
-<script src="/node_modules/angular-aria/angular-aria.js"></script>
-```
-
 Then add `ngAria` as a dependency for your app:
 
 ```javascript
-angular.module('myApp', ['ngAria']);
+angular.module('myApp', [require('angular-aria')]);
 ```
-
-Note that this package is not in CommonJS format, so doing `require('angular-aria')` will
-return `undefined`.
 
 ### bower
 
