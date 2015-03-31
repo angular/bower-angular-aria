@@ -1,9 +1,9 @@
 {
   "name": "angular-aria",
-  "version": "1.4.0-build.3941+sha.ffbeb32",
+  "version": "1.3.16-build.100+sha.d5c99ea",
   "main": "./angular-aria.js",
   "ignore": [],
   "dependencies": {
-    "angular": "1.4.0-build.3941+sha.ffbeb32"
+    "angular": "1.3.16-build.100+sha.d5c99ea"
   }
 }
