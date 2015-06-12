@@ -1,6 +1,6 @@
 /**
- * @license AngularJS v1.3.17-build.123+sha.f486ebe
- * (c) 2010-2014 Google, Inc. http://angularjs.org
+ * @license AngularJS v1.4.1-build.4056+sha.8caf180
+ * (c) 2010-2015 Google, Inc. http://angularjs.org
  * License: MIT
  */
 (function(window, angular, undefined) {'use strict';
@@ -19,8 +19,8 @@
  *
  * ## Usage
  *
- * For ngAria to do its magic, simply include the module as a dependency. The directives supported
- * by ngAria are:
+ * For ngAria to do its magic, simply include the module `ngAria` as a dependency. The following
+ * directives are supported:
  * `ngModel`, `ngDisabled`, `ngShow`, `ngHide`, `ngClick`, `ngDblClick`, and `ngMessages`.
  *
  * Below is a more detailed breakdown of the attributes handled by ngAria:
@@ -120,9 +120,8 @@ function $AriaProvider() {
       var ariaCamelName = attr.$normalize(ariaAttr);
       if (config[ariaCamelName] && !attr[ariaCamelName]) {
         scope.$watch(attr[attrName], function(boolVal) {
-          if (negate) {
-            boolVal = !boolVal;
-          }
+          // ensure boolean value
+          boolVal = negate ? !boolVal : !!boolVal;
           elem.attr(ariaAttr, boolVal);
         });
       }
@@ -270,13 +269,23 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
                 elem.attr('role', 'slider');
               }
               if ($aria.config('ariaValue')) {
-                if (attr.min && !elem.attr('aria-valuemin')) {
-                  elem.attr('aria-valuemin', attr.min);
+                var needsAriaValuemin = !elem.attr('aria-valuemin') &&
+                    (attr.hasOwnProperty('min') || attr.hasOwnProperty('ngMin'));
+                var needsAriaValuemax = !elem.attr('aria-valuemax') &&
+                    (attr.hasOwnProperty('max') || attr.hasOwnProperty('ngMax'));
+                var needsAriaValuenow = !elem.attr('aria-valuenow');
+
+                if (needsAriaValuemin) {
+                  attr.$observe('min', function ngAriaValueMinReaction(newVal) {
+                    elem.attr('aria-valuemin', newVal);
+                  });
                 }
-                if (attr.max && !elem.attr('aria-valuemax')) {
-                  elem.attr('aria-valuemax', attr.max);
+                if (needsAriaValuemax) {
+                  attr.$observe('max', function ngAriaValueMinReaction(newVal) {
+                    elem.attr('aria-valuemax', newVal);
+                  });
                 }
-                if (!elem.attr('aria-valuenow')) {
+                if (needsAriaValuenow) {
                   scope.$watch(ngAriaWatchModelValue, function ngAriaValueNowReaction(newVal) {
                     elem.attr('aria-valuenow', newVal);
                   });
@@ -352,7 +361,8 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 
         if ($aria.config('bindKeypress') && !attr.ngKeypress && !isNodeOneOf(elem, nodeBlackList)) {
           elem.on('keypress', function(event) {
-            if (event.keyCode === 32 || event.keyCode === 13) {
+            var keyCode = event.which || event.keyCode;
+            if (keyCode === 32 || keyCode === 13) {
               scope.$apply(callback);
             }
 
