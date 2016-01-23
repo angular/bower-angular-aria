@@ -1,9 +1,9 @@
 {
   "name": "angular-aria",
-  "version": "1.5.0-build.4531+sha.7985416",
+  "version": "1.5.0-build.4535+sha.6406e3b",
   "main": "./angular-aria.js",
   "ignore": [],
   "dependencies": {
-    "angular": "1.5.0-build.4531+sha.7985416"
+    "angular": "1.5.0-build.4535+sha.6406e3b"
   }
 }
