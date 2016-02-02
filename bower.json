@@ -1,10 +1,10 @@
 {
   "name": "angular-aria",
-  "version": "1.5.0-build.4562+sha.ca5b27b",
+  "version": "1.5.0-build.4573+sha.43f7206",
   "license": "MIT",
   "main": "./angular-aria.js",
   "ignore": [],
   "dependencies": {
-    "angular": "1.5.0-build.4562+sha.ca5b27b"
+    "angular": "1.5.0-build.4573+sha.43f7206"
   }
 }
