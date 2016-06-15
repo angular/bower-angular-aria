@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.5.7-build.4885+sha.6bc81ae
+ * @license AngularJS v1.5.7
  * (c) 2010-2016 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -233,8 +233,8 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
   function shouldAttachRole(role, elem) {
     // if element does not have role attribute
     // AND element type is equal to role (if custom element has a type equaling shape) <-- remove?
-    // AND element is not in nodeBlackList
-    return !elem.attr('role') && (elem.attr('type') === role) && !isNodeOneOf(elem, nodeBlackList);
+    // AND element is not INPUT
+    return !elem.attr('role') && (elem.attr('type') === role) && (elem[0].nodeName !== 'INPUT');
   }
 
   function getShape(attr, elem) {
@@ -270,8 +270,6 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
           }
 
           function getRadioReaction(newVal) {
-            // Strict comparison would cause a BC
-            /* jshint eqeqeq:false */
             var boolVal = (attr.value == ngModel.$viewValue);
             elem.attr('aria-checked', boolVal);
           }
