@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.6.10-build.5553+sha.b2ed68d
+ * @license AngularJS v1.6.10
  * (c) 2010-2018 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -57,7 +57,7 @@
  * {@link guide/accessibility Developer Guide}.
  */
 var ngAriaModule = angular.module('ngAria', ['ng']).
-                        info({ angularVersion: '1.6.10-build.5553+sha.b2ed68d' }).
+                        info({ angularVersion: '1.6.10' }).
                         provider('$aria', $AriaProvider);
 
 /**
@@ -229,10 +229,7 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 .directive('ngModel', ['$aria', function($aria) {
 
   function shouldAttachAttr(attr, normalizedAttr, elem, allowBlacklistEls) {
-    return $aria.config(normalizedAttr) &&
-      !elem.attr(attr) &&
-      (allowBlacklistEls || !isNodeOneOf(elem, nodeBlackList)) &&
-      (elem.attr('type') !== 'hidden' || elem[0].nodeName !== 'INPUT');
+    return $aria.config(normalizedAttr) && !elem.attr(attr) && (allowBlacklistEls || !isNodeOneOf(elem, nodeBlackList));
   }
 
   function shouldAttachRole(role, elem) {
